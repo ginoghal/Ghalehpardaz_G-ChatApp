@@ -11,7 +11,7 @@ export default {
         </p>
     `,
 
-    data:function() {
+    data: function() {
         //nothing here yet but there will be
         return {
             matchedID: this.$parent.socketID == this.msg.id
