@@ -9,6 +9,7 @@ export default {
         <span>{{msg.message.name}} says:</span>
         {{msg.message.content}}
         </p>
+        Date.now();
     `,
 
     data: function() {
