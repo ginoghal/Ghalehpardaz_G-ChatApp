@@ -3,7 +3,6 @@
 
 var time = Date(Date.now());
 
-timeNow = time.toString()
 
 
 export default {
@@ -14,7 +13,7 @@ export default {
         <span>{{msg.message.name}} says:</span>
         {{msg.message.content}}
         </p>
-        {{timeNow}}
+        
     `,
 
     data: function() {
