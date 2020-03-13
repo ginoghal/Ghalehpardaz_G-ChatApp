@@ -4,13 +4,16 @@ import ChatMessage from "./modules/ChatMessage.js";
 const socket = io();
 
 function setUserId({sID, message}) {
-    debugger;
+  
    vm.socketID = sID;
 }
 
 function runDisconnectMessage(packet) {
-    debugger;
+    let messageArea = document.querySelector("section.messages");
+    messageArea.innerHTML += `<p class="message-update">${vm.nickName} has left the chat</p>`;
+ 
     console.log(packet);
+    // vm.nickName(packet)
 }
 
 function appendNewMessage(msg) {
@@ -20,19 +23,25 @@ function appendNewMessage(msg) {
 }
 
 //this is our main Vue instance
+
+
 const vm = new Vue({
+
 data:{
     socketID:"",
     messages:[],
     message: "",
-    nickName: ""
+    nickName: "",
+    time: "",
 }, 
 
 methods: {
     dispatchMessage() {
         //emit a message event and send the message to the server
         console.log('handle send message');
+            var currentDate = new Date();
 
+  
         socket.emit('chat_message', {
             content: this.message,
             name: this.nickName || "annonymous"
