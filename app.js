@@ -45,7 +45,7 @@ io.on('connection', function(socket) {
 socket.on('disconnect', function() {
     console.log('a user disconnected');
 
-    //message = `${socket.id} has left the chat!`;
-    io.emit('user_disconnect', message);
+    message = `${socket.id} has left the chat!`;
+    io.emit('user_disconnect',message);
     })
 })
