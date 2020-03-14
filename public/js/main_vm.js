@@ -16,6 +16,7 @@ function runDisconnectMessage(packet) {
     // vm.nickName(packet)
 }
 
+
 function appendNewMessage(msg) {
     //takes the incoming message and pushes it into the Vue instance
     //into the messages array

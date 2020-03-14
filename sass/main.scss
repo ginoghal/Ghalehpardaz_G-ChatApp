@@ -21,7 +21,7 @@ main {
 	width: 40%;
 	height: 46%;
 	margin-top: 28.5%;
-	margin-left: 27%;
+	margin-left: 30%;
 	z-index: 3;
 	position: absolute;
 
@@ -55,7 +55,11 @@ input, textarea {
 
 textarea { height: 135px; }
 
-
+#demo p{
+	margin-top: 20px;
+	color: red;
+	font-size: 100px;
+}
 
 form {
 	//background: #000;
