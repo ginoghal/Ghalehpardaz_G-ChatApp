@@ -1,47 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Welcome to the Dark Chat!</title>
+    <link rel="stylesheet" href="css/main.css" />
+    <script src="https://unpkg.com/vue"></script>
+  </head>
 
-<head>
-	<meta charset="UTF-8">
-	<title>Socket IO Chat with Node!</title>
-	<link rel="stylesheet" href="css/main.css">
-	<script src="https://unpkg.com/vue"></script>
-</head>
+  <body>
+    <div class="title"><h1>Welcome to the Dark Chat!</h1></div>
+    <div class="timeChat">
+      <p>The chat started at:</p>
+      <p id="time"></p>
+    </div>
 
-<body>
+    <main id="app">
+      <section class="form-container">
+        <label for="nickname">Your Name</label>
+        <input
+          v-model="nickName"
+          type="text"
+          id="nickname"
+          class="nickname"
+          placeholder="What is your nickname?"
+        />
 
-	<div class="timeChat">
-	<p>The chat started at:</p>	<p id="time"></p></div>
+        <form>
+          <label for="message">Say Something...</label>
+          <textarea
+            v-model="message"
+            class="message"
+            type="text"
+            autocomplete="off"
+            id="textarea"
+          ></textarea>
+          <!-- <input @click.prevent="dispatchMessage" type="submit"> -->
+          <input
+            @click.prevent="dispatchMessage"
+            type="submit"
+            value="Send Message"
+          />
+        </form>
+      </section>
 
-	<main id="app">
-		<section class="form-container">
-			<label for="nickname">Your Name</label>
-			<input v-model="nickName" type="text" id="nickname" class="nickname" placeholder="What is your nickname?">
-
-			<form>
-				<label for="message">Say Something...</label>
-				<textarea v-model="message" class="message" type="text" autocomplete="off" id="textarea"></textarea>
-				<!-- <input @click.prevent="dispatchMessage" type="submit"> -->
-				<input @click.prevent="dispatchMessage" type="submit" value='Send Message'>
-
-
-
-
-			</form>
-		</section>
-
-		<section class="messages">
-			<ul id="messages" v-for="message in messages">
-				<!-- render a new message component for every message -->
-				<newmessage :msg="message"></newmessage>
-	
-				
-			</ul>
-		</section>
-	</main>
-	<script src="/socket.io/socket.io.js"></script>
-	<script type="module" src="js/main_vm.js"></script>
-	<script src="js/main.js"></script>
-</body>
-
+      <section class="messages">
+        <ul id="messages" v-for="message in messages">
+          <!-- render a new message component for every message -->
+          <newmessage :msg="message">
+            <p id="demo"></p>
+          </newmessage>
+        </ul>
+      </section>
+    </main>
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="module" src="js/main_vm.js"></script>
+    <script src="js/main.js"></script>
+  </body>
 </html>
